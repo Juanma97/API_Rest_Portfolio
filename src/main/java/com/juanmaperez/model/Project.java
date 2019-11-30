@@ -1,6 +1,5 @@
 package com.juanmaperez.model;
 
-import com.sun.deploy.cache.SignedAsBlobJarFile;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
