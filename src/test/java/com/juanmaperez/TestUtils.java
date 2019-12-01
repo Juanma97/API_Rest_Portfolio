@@ -11,7 +11,7 @@ public class TestUtils {
         List<Project> projects = new ArrayList<>();
 
         for (int i = 0; i < size; i++) {
-            projects.add(new Project("Project_" + i));
+            projects.add(new Project("P" + i, "D1", "github", "playstore", null, null, null, null));
         }
 
         return projects;

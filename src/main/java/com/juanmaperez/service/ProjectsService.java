@@ -2,7 +2,6 @@ package com.juanmaperez.service;
 
 import com.juanmaperez.model.Project;
 import com.juanmaperez.repository.ProjectRepository;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -10,7 +9,6 @@ import java.util.List;
 @Service
 public class ProjectsService {
 
-    @Autowired
     private ProjectRepository projectRepository;
 
     public ProjectsService(ProjectRepository projectRepository) {
@@ -19,5 +17,9 @@ public class ProjectsService {
 
     public List<Project> getAllProjects() {
         return projectRepository.findAll();
+    }
+
+    public Project insertProject(Project project) {
+        return projectRepository.save(project);
     }
 }

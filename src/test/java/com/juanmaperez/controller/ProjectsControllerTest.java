@@ -39,4 +39,15 @@ public class ProjectsControllerTest {
         assertEquals(expected, actual);
     }
 
+    @Test
+    public void when_insert_a_project_should_call_service_and_return_the_project () {
+        Project expected = new Project("P1", "D1", "github", "playstore", null, null, null, null);
+        doReturn(expected).when(projectsServiceMOCK).insertProject(expected);
+
+        Project actual = projectsControllerSUT.insertProject(expected);
+        verify(projectsServiceMOCK, times(1)).insertProject(expected);
+
+        assertEquals(expected, actual);
+    }
+
 }

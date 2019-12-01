@@ -27,12 +27,23 @@ public class ProjectServiceTest {
     }
 
     @Test
-    public void when_get_all_courses_shoul_call_repository_and_return_all_courses () {
+    public void when_get_all_projects_shoul_call_repository_and_return_all_projects () {
         List<Project> expected = TestUtils.generateProjects(5);
         doReturn(expected).when(projectRepositoryMOCK).findAll();
 
         List<Project> actual = projectsServiceSUT.getAllProjects();
         verify(projectRepositoryMOCK, times(1)).findAll();
+
+        assertEquals(expected, actual);
+    }
+
+    @Test
+    public void when_insert_a_project_should_call_repository_and_return_the_project () {
+        Project expected = new Project("P1", "D1", "github", "playstore", null, null, null, null);
+        doReturn(expected).when(projectRepositoryMOCK).save(expected);
+
+        Project actual = projectsServiceSUT.insertProject(expected);
+        verify(projectRepositoryMOCK, times(1)).save(expected);
 
         assertEquals(expected, actual);
     }
