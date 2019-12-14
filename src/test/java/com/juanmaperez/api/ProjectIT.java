@@ -33,22 +33,35 @@ public class ProjectIT {
     }
 
     @Test
-    public void when_get_all_projects_should_return_all_projects_sucessfully () throws Exception {
+    public void when_get_all_projects_should_return_all_projects_sucessfully() throws Exception {
         mockMvc.perform(
                 get("/projects")
-                .contentType(MediaType.APPLICATION_JSON))
+                        .contentType(MediaType.APPLICATION_JSON))
                 .andExpect(status().isOk());
     }
 
     @Test
-    public void when_insert_a_project_should_return_the_project_sucessfully () throws Exception {
+    public void when_insert_a_project_should_return_the_project_sucessfully() throws Exception {
         ObjectMapper objectMapper = new ObjectMapper();
         Project project = new Project("P1", "D1", "github", "playstore", null, null, null, null);
 
         mockMvc.perform(
                 post("/projects")
-                .contentType(MediaType.APPLICATION_JSON)
-                .content(objectMapper.writeValueAsString(project))
-                ).andExpect(status().isOk());
+                        .contentType(MediaType.APPLICATION_JSON)
+                        .content(objectMapper.writeValueAsString(project))
+        ).andExpect(status().isOk());
+    }
+
+    @Test
+    public void when_update_a_project_should_return_the_project_sucessfully() throws Exception {
+        ObjectMapper objectMapper = new ObjectMapper();
+
+        Project project = new Project(5L,"P1-UPDATED-IT", "D1", "github", "playstore", null, null, null, null);
+
+        mockMvc.perform(
+                put("/projects")
+                        .contentType(MediaType.APPLICATION_JSON)
+                        .content(objectMapper.writeValueAsString(project))
+        ).andExpect(status().isOk());
     }
 }

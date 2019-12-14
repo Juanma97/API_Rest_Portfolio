@@ -22,4 +22,8 @@ public class ProjectsService {
     public Project insertProject(Project project) {
         return projectRepository.save(project);
     }
+
+    public Project updateProject(Project project) {
+        return projectRepository.save(project);
+    }
 }

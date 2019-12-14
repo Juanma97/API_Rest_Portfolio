@@ -27,4 +27,9 @@ public class ProjectsController {
     public Project insertProject(@RequestBody Project project) {
         return projectsService.insertProject(project);
     }
+
+    @PutMapping
+    public Project updateProject(@RequestBody Project project) {
+        return projectsService.updateProject(project);
+    }
 }

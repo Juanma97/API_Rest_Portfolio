@@ -21,6 +21,9 @@ public class Project {
     private String image_3;
     private String image_4;
 
+
+    public Project() { }
+
     public Project(String title, String description, String url_github, String url_playstore,
                    String image_1, String image_2, String image_3, String image_4) {
 
@@ -33,6 +36,21 @@ public class Project {
         this.image_3 = image_3;
         this.image_4 = image_4;
     }
+
+    public Project(Long id, String title, String description, String url_github, String url_playstore,
+                   String image_1, String image_2, String image_3, String image_4) {
+
+        this.id = id;
+        this.title = title;
+        this.description = description;
+        this.url_github = url_github;
+        this.url_playstore = url_playstore;
+        this.image_1 = image_1;
+        this.image_2 = image_2;
+        this.image_3 = image_3;
+        this.image_4 = image_4;
+    }
+
 
     public String getDescription() {
         return description;
