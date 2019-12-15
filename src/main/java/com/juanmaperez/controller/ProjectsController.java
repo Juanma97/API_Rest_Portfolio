@@ -32,4 +32,9 @@ public class ProjectsController {
     public Project updateProject(@RequestBody Project project) {
         return projectsService.updateProject(project);
     }
+
+    @DeleteMapping("/{id}")
+    public void deleteProject(@PathVariable long id) {
+        projectsService.deleteProject(id);
+    }
 }

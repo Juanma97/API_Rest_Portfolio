@@ -64,4 +64,12 @@ public class ProjectIT {
                         .content(objectMapper.writeValueAsString(project))
         ).andExpect(status().isOk());
     }
+
+    @Test
+    public void when_delete_a_project_should_delete_the_project_sucessfully() throws Exception {
+        mockMvc.perform(
+                delete("/projects/1")
+                .contentType(MediaType.APPLICATION_JSON)
+        ).andExpect(status().isOk());
+    }
 }

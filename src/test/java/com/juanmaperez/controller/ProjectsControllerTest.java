@@ -61,4 +61,9 @@ public class ProjectsControllerTest {
         assertEquals(expected, actual);
     }
 
+    @Test
+    public void when_delete_a_project_should_call_service_and_delete_the_project() {
+        projectsControllerSUT.deleteProject(1L);
+        verify(projectsServiceMOCK, times(1)).deleteProject(1L);
+    }
 }

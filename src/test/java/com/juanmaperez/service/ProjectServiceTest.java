@@ -58,4 +58,10 @@ public class ProjectServiceTest {
 
         assertEquals(expected, actual);
     }
+
+    @Test
+    public void when_delete_a_project_should_call_repository_and_delete_project() {
+        projectsServiceSUT.deleteProject(1L);
+        verify(projectRepositoryMOCK, times(1)).deleteById(1L);
+    }
 }
